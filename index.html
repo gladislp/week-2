@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>SMKN 7 SEMARANG</title>
+    
+<style>
+  :root {
+    --maroon: #800000;
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --gray: #f5f5f5;
+    --text-color: #333;
+    --primary-font: 'Poppins', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--primary-font);
+    text-decoration: none;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--white);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  header {
+    background-color: var(--white);
+    border-bottom: 1px solid #ddd;
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .containernavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--maroon);
+  }
+
+  .nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+
+  .nav a {
+    color: var(--black);
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav a:hover {
+    color: var(--maroon);
+  }
+
+  .hero {
+    background-image: url('img/2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .hero button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--maroon);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .section-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  .about-content {
+    font-size: 14px;
+    text-align: justify;
+    color: var(--text-color);
+  }
+
+  .jurusan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .jurusan-card {
+    background-color: var(--white);
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .jurusan-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  /* Tambahan untuk Section .more (media sosial) */
+.more {
+  background-color: var(--maroon);
+  color: var(--white);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.more .section-title {
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  background-color: var(--white);
+  color: var(--maroon);
+  border-radius: 50%;
+  padding: 12px;
+  display: inline-flex;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.social-icons a:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+  .lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .lookbook-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: var(--white);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* opsional: buat efek elegan */
+}
+
+.lookbook-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+  .lookbook-title {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+.testimonial-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-top: 20px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  scroll-padding-left: calc(50vw - 150px);
+  scroll-padding-right: calc(50vw - 150px);
+}
+
+.testimonial {
+  background-color: var(--white);
+  padding: 20px;
+  border-left: 5px solid var(--maroon);
+  font-style: italic;
+  border-radius: 4px;
+  min-width: 280px;
+  max-width: 300px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 6px var(--text-color);
+}
+
+.testimonial-author {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--maroon);
+  text-align: right;
+}
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  .btn-submit {
+    padding: 10px;
+    margin: auto;
+    background-color: var(--maroon);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+  }
+
+  .btn-submit:hover {
+    background-color: #a00000;
+  }
+
+  .footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .slogan {
+    font-style: italic;
+    color: var(--gray);
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 24px;
+    }
+
+    .hero p {
+      font-size: 14px;
+    }
+
+    .containernavbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .nav ul {
+      flex-direction: column;
+      gap: 10px;
+      padding-left: 0;
+    }
+
+    .testimonial-container {
+      flex-direction: column;
+      overflow-x: unset;
+    }
+
+    .testimonial {
+      max-width: 100%;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header>
+    <div class="containernavbar">
+      <div class="logo">SMKN 7 SEMARANG</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#about">about</a></li>
+          <li><a href="#jurusan">jurusan</a></li>
+          <li><a href="#more">more</a></li>
+          <li><a href="#lookbook">lookbook</a></li>
+          <li><a href="#testimoni">testimoni</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <article>
+    <div class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>SMKN 7 SEMARANG</h1>
+          <p>Mari belajar di SMKN 7 SEMARANG</p>
+          <button type="button">Get in Touch</button>
+        </div>
+      </section>
+
+      <section id="about">
+        <section class="about">
+          <div class="container">
+            <h2 class="section-title">Sekolah Vokasi Masa Depan</h2>
+            <p class="about-content">
+              SMKN 7 Semarang adalah sekolah kejuruan unggulan yang berkomitmen mencetak generasi terampil, berkarakter, dan siap menghadapi tantangan global. Dengan lingkungan belajar yang inspiratif dan fasilitas modern, kami hadir untuk membentuk masa depan yang cemerlang bagi setiap siswa.
+              Kami percaya bahwa pendidikan vokasi bukan hanya tentang keahlian teknis, tetapi juga membangun sikap profesional, rasa tanggung jawab, dan semangat inovasi. SMKN 7 Semarang terus mengembangkan kurikulum berbasis industri, didukung oleh tenaga pengajar berpengalaman dan mitra dunia usaha yang solid.
+              SMKN 7 Semarang — tempat di mana keterampilan bertemu dengan masa depan.
+
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <section id="jurusan">
+        <section class="jurusan">
+          <div class="container">
+            <h2 class="section-title">Jurusan di SMKN 7 Semarang</h2>
+            <div class="jurusan-grid">
+              <div class="jurusan-card">
+                <div class="jurusan-icon">🪜</div>
+                <h3>KJIJ</h3>
+                <p class="jurusan-desc">
+                      Fokus pada keterampilan merancang dan membangun infrastruktur penting seperti jembatan, jalan raya, dan sistem irigasi. Cocok buat kamu yang tertarik pada dunia teknik sipil dan pembangunan berkelanjutan.
+                </p>
+              </div>
+              <div class="jurusan-card">
+                <div class="jurusan-icon">🧱</div>
+                <h3>KGS</h3>
+                <p class="jurusan-desc">
+                      Fokus pada pembangunan gedung dan sistem sanitasi yang ramah lingkungan. Siswa dilatih dalam teknik konstruksi, plumbing, serta keselamatan bangunan untuk kebutuhan masa kini.
+                </p>
+              </div>
+              <div class="jurusan-card">
+                <div class="jurusan-icon">💻</div>
+                <h3>SIJA</h3>
+                <p class="jurusan-desc">
+                      Dunia digital makin maju, dan jurusan ini jadi pintu gerbangnya. Siswa belajar membangun aplikasi, mengelola database, hingga membangun jaringan komputer yang handal.
+                </p>
+              </div>
+              <div class="jurusan-card">
+                <div class="jurusan-icon">📟</div>
+                <h3>TME</h3>
+                <p class="jurusan-desc">
+                      Perpaduan antara mekanik, elektronika, dan pemrograman. Cocok buat kamu yang suka robot, otomasi industri, dan sistem cerdas berbasis sensor.
+                </p>
+              </div>
+              <div class="jurusan-card">
+                <div class="jurusan-icon">📲</div>
+                <h3>TEK</h3>
+                <p class="jurusan-desc">
+                      Membahas seluk-beluk komunikasi elektronik seperti sinyal radio, jaringan telekomunikasi, dan sistem transmisi data modern.
+                </p>
+              </div>
+              <div class="jurusan-card">
+                <div class="jurusan-icon">💡</div>
+                <h3>TITL</h3>
+                <p class="jurusan-desc">
+                      Belajar sistem kelistrikan dari dasar sampai industri, termasuk instalasi rumah tangga, panel listrik, dan perawatan sistem tenaga.
+                </p>
+              </div>
+              <div class="jurusan-card">
+                <div class="jurusan-icon">⚙️</div>
+                <h3>TFLM</h3>
+                <p class="jurusan-desc">
+                      Fokus pada teknik produksi berbasis logam seperti pengelasan, pemotongan, dan perakitan produk industri. Cocok buat kamu yang suka kerja presisi.
+                </p>
+              </div>
+              <div class="jurusan-card">
+                <div class="jurusan-icon">🚗</div>
+                <h3>TKR</h3>
+                <p class="jurusan-desc">
+                      Dunia otomotif nggak pernah sepi. Di sini kamu belajar merawat, memperbaiki, dan menganalisis sistem kendaraan roda empat secara profesional.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="more">
+        <div class="more">
+          <div class="container">
+            <h2 class="section-title">Ikuti Kami di Media Sosial</h2>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="lookbook">
+        <section class="lookbook">
+          <div class="container">
+            <h2 class="section-title">Potret Aktivitas Kami</h2>
+            <div class="lookbook-grid">
+              <div class="lookbook-item">
+                <img src="img/6.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Dokumentasi praktik jurusan</h3>
+              </div>
+              <div class="lookbook-item">
+                <img src="img/7.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Belajar di laboratorium</h3>
+              </div>
+              <div class="lookbook-item">
+                <img src="img/9.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Kunjungan industri</h3>
+              </div>
+              <div class="lookbook-item">
+                <img src="img/11.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Kegiatan</h3>
+              </div>
+              <div class="lookbook-item">
+                <img src="img/1.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Kegiatan</h3>
+              </div>
+              <div class="lookbook-item">
+                <img src="img/3.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Kegiatan</h3>
+              </div>
+              <div class="lookbook-item">
+                <img src="img/4.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Kegiatan</h3>
+              </div>
+              <div class="lookbook-item">
+                <img src="img/5.jpg" alt="" style="background:#ccc;height:120px;width:100%;">
+                <h3 class="lookbook-title">Kegiatan</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+    <section id="testimoni">
+    <div class="container">
+        <h2 class="section-title">Testimoni</h2>
+        <div class="testimonial-container">
+        <div class="testimonial">
+            “SMKN 7 ngajarin aku skill nyata yang langsung kepake di dunia kerja.”
+            <div class="testimonial-author">— Dimas, Alumni SIJA</div>
+        </div>
+        <div class="testimonial">
+            “Belajar di sini itu asik, banyak praktiknya dan gurunya seru.”
+            <div class="testimonial-author">— Ratna, Alumni TME</div>
+        </div>
+        <div class="testimonial">
+            “Aku keterima kerja sebelum lulus! Thanks to SMKN 7.”
+            <div class="testimonial-author">— Rafi, Alumni TITL</div>
+        </div>
+        <div class="testimonial">
+            “Sekolahnya luas dan menyenangkan. Terima kasih SMKn &!”
+            <div class="testimonial-author">— Siti, Alumni SIJA</div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+      <section id="contact">
+        <section id="contact">
+          <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Fullname">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="abc@mail.com">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="your message"></textarea>
+              <button type="submit" class="btn-submit">Send</button>
+            </form>
+          </div>
+        </section>
+      </section>
+    
+    <footer class="footer">
+      <p>&copy; 2025 SMKN 7 Semarang</p>
+      <p class="slogan">Tiada Hari Tanpa Prestasi</p>
+    </footer>
+
+    </div>
+  </article>
+</body>
+</html>
